@@ -1,0 +1,87 @@
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    font-family: 'Helvetica';
+}
+
+input {
+    border: 1px solid rgba(0, 0, 0, 0.315) !important;
+}
+
+input,
+button {
+    margin: 10px;
+    width: 150px;
+    border: 0px;
+    padding: 15px;
+    outline: none;
+    border-radius: 5px;
+    transition: 0.2s ease-in-out;
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+ul {
+    height: 250px;
+    width: 100vw;
+    font-size: 1.5rem;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+li {
+    height: fit-content;
+    margin: 0px 20px;
+}
+
+.randomNameDisplay {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-align: center;
+    font-size: 6rem;
+    margin: auto;
+    color: black;
+    width: 800px;
+}
+
+.selected {
+    text-decoration: line-through;
+    opacity: 0.4;
+    transition: 0.3s ease-in-out;
+}
+
+.randomSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    background-color: white;
+    border: 1px solid black;
+    padding: 50px;
+    position: relative;
+}
+
+p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    background-color: red;
+    color: white;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
