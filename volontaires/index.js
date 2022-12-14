@@ -57,7 +57,6 @@ deleteButton.addEventListener('click', () => {
     location.reload();
 });
 
-
 const list = document.createElement('ul');
 document.body.append(list);
 
@@ -99,7 +98,7 @@ function randomName() {
         alreadySelected.push(randomName);
         console.table(alreadySelected);
         list.children[resultRandom].classList.add('selected');
-    }
+    }        
 
     randomNameButton.addEventListener('click', () => {
         randomSection.remove();
