@@ -37,6 +37,10 @@ const loadButton = document.createElement('button');
 loadButton.textContent = 'Load';
 document.body.append(loadButton);
 
+/**
+ * Fonctionne, mais ça parait plus pratique de sauvegarder
+ * et charger les données automatiquement
+ */
 loadButton.addEventListener('click', () => {
     const items = JSON.parse(localStorage.getItem('items'));
     items.forEach(item => {
@@ -54,6 +58,7 @@ document.body.append(deleteButton);
 
 deleteButton.addEventListener('click', () => {
     localStorage.removeItem('items');
+    // Tu n'as pas vraiment besoin de reload
     location.reload();
 });
 
@@ -90,6 +95,10 @@ function randomName() {
     randomNameDisplay.textContent = randomName;
     randomSection.append(randomNameDisplay);
     randomNameDisplay.classList.add("randomNameDisplay");
+    /**
+     * Pour éviter que cela arrive, tu devrais te baser sur une liste filtrée
+     * en fonction de ton alreadySelected pour choisir le nouveau nom
+     */
     if(alreadySelected.includes(randomName)) {
         const p = document.createElement('p');
         p.textContent = 'Ce nom a déja été tiré au sort, recommence';
@@ -98,7 +107,7 @@ function randomName() {
         alreadySelected.push(randomName);
         console.table(alreadySelected);
         list.children[resultRandom].classList.add('selected');
-    }        
+    }
 
     randomNameButton.addEventListener('click', () => {
         randomSection.remove();
