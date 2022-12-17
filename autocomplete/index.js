@@ -36,8 +36,10 @@ const autocomplete = () => {
                 const li = document.createElement('li');
                 li.innerHTML = result.nom + ' (' + result.code + ')';
                 ul.append(li);
+                // Utilise du CSS
                 li.style.fontSize = '1.2rem';
                 li.style.fontFamily = 'helvetica';
+                // Tes départements sont affichés en vert
                 const color = result.codesPostaux ? 'red' : result.codeDepartement ? 'blue' : 'green';
                 li.style.color = color;
 
@@ -54,6 +56,7 @@ const autocomplete = () => {
                     document.body.append(div);
                     div.classList.add('result');
                     div.innerHTML = event.target.innerText;
+                    // Utilise du CSS plutôt
                     div.style.fontSize = '2rem';
                     div.style.fontFamily = 'helvetica';
                     div.style.color = color;
@@ -61,6 +64,10 @@ const autocomplete = () => {
                     div.style.marginTop = '2rem';
                     div.style.marginBottom = '2rem';
                     ul.innerHTML = '';
+                    /**
+                     * Ce ternaire est bizarre: tu as tjrs la div avec l'id 'div',
+                     * vu qu'elle est créée et ajoutée un peu plus haut
+                     */
                     document.getElementById('div') ? document.getElementById('div').replaceWith(div) : document.body.append(div);
                 });
                 // Me permet de fermer l'autocomplete lorsque je clique en dehors de l'input

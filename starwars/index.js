@@ -62,6 +62,11 @@ RandomButton.addEventListener('click', () => {
     loadRandomCharacter();
 });
 
+/**
+ * Non utilisé ?
+ * Perso je trouve ça plus propre de charger toutes les infos
+ * d'un perso avant de l'afficher
+ */
 const loadCharacterWithFilms = async (id) => {
     const response = await fetch(`https://swapi.dev/api/people/${id}`);
     const data = await response.json();
@@ -82,8 +87,17 @@ const loadCharacter = async (id) => {
     const data = await response.json();
     // const character = data;
     console.log(data);
+
+    /**
+     * Ça vaudrait le coup de faire une fonction du code
+     * de création des infos d'un personnage pour éviter la duplication
+     */
     const div = document.createElement('div');
     div.textContent = 'Name : ' + data.name;
+    /**
+     * Si tu cliques vite sur plusieurs boutons
+     * les infos des persos vont se cumuler à l'écran
+     */
     document.body.append(div);
     const div2 = document.createElement('div');
     div2.textContent = 'Height : ' + data.height;
@@ -100,7 +114,8 @@ const loadCharacter = async (id) => {
         div.textContent = 'films : ' + allFilms.title;
         document.body.append(div);
     });
-    
+
+    // Tu pourrais sortir ce code de cette fonction pour ne l'exécuter qu'une seule fois
     const buttons = document.querySelectorAll('button');
     buttons.forEach(button => {
         button.addEventListener('click', () => {
